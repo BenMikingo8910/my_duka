@@ -1,24 +1,47 @@
-from flask import Flask
+from flask import Flask, render_template
+from database import get_products
 
 #flask instance
 app = Flask(__name__)
 
 
-@app.route('/')
-def home():
-    return "Hello World"
+@app.route('/') #decorator func
+def home(): #view func
+    name = "Bensuda"
+    return render_template('index.html',)
 
 
 @app.route('/products')
 def products():
-    return "Products Page"
+    products_data = get_products()
+    return render_template ('products.html',products_data = products_data)
 
 
 @app.route('/sales')
 def sales():
-    return "Sales Pages"
+    return ("Sales Pages")
+
+@app.route('/stock')
+def stock():
+    return render_template('stock.html')
 
 
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 
 # starts server to run app

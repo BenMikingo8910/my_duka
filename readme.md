@@ -174,3 +174,44 @@ static :contains all static files to be rendered with flask e.g. css, js, images
 database.py main.py
 
 ---> To render html files in Flask we use a function imported from flask called render_template() template --> a single html file
+
+template inheritance --> Is the process of building html pages in flask by first identifying common features across all pages then having those common features in one template called base / parent , subsequently all other html pages inherit from the base template and by extension they inherit the common features e.g. navbar , footer
+
+--> Template inheritance is enabled by a Flask feature called Jinja
+
+block title ---> defines a block within which we get to pass the unique title of a page block content --> defines a block within which we get to pass the unique content of each page
+
+{% extends 'base.html' %} ----> inherit features from base template
+
+task ---> Apply template inheritance across all html pages ----> create a real navbar and footer for base.html
+
+DISPLAYING DATA FROM POSTGRES IN HTML steps
+
+Ensure you have a function that fetches the data required from Postgres
+Import that function to your main file to reuse it
+Declare a variable that calls the function in the route where you intend to display your data
+Pass that variable in the render_template() function
+Go to the intended html page and pass that variable in Jinja to display your data
+Once you can see your data in raw list/tuple format , structure it in a table (use Jinja)
+Jinja ---> a templating engine integrated with flask to render dynamic html pages ---> It is just simply syntax used depending on whether you are are using variables or control structures
+
+control structures in Python --> The building blocks of Python programming
+
+Sequence ---> the order in which Python executes programs ---> top to bottom , left to right
+
+Selection ---> decision making in Python ---> conditinal statements : if-else, switch
+
+Repitition ---> executing code repeatedly ---> loops : for , while
+
+Jinja Syntax 1.With Variables ---> use {{ }}
+
+2.With Control structures: ----> use {% %} ---> it has to have a starting point and ending point
+
+{% for .... %}     {% endfor %}
+{% if .... %}     {% endif %}
+{% while .... %}     {% while %}
+TASK
+
+Display your sales and stock data in the sales and stock pages respectively using Jinja
+Finish up on building your navbar and footer in base.html ( Bootsrap is allowed)
+TASK -->display your sales and stock data in a datatable
